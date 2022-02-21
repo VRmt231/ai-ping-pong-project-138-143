@@ -4,6 +4,7 @@ leftWristY = ""
 rightWristX = ""
 rightWristY = ""
 scoreRightWrist = ""
+game_status = ""
 var paddle2 = 10,
   paddle1 = 10;
 
@@ -53,6 +54,10 @@ function gotPoses(results) {
     scoreRightWrist = results[0].score.rightWrist;
   }
 }
+function StartGame(){
+  game_status="start"
+  document.getElementById("status").innerHTML = "Status - Game Loaded"
+}
 
 function draw() {
   image(video, 0, 0, 700, 600)
@@ -61,7 +66,7 @@ function draw() {
     fill('#00FF00')
     stroke('#00FF00')
     circle(10, leftWristX, leftWristY, rightWristX, rightWristY, )
-  }
+  }z
   fill("black");
   stroke("black");
   rect(680, 0, 20, 700);
@@ -69,6 +74,8 @@ function draw() {
   fill("black");
   stroke("black");
   rect(0, 0, 20, 700);
+
+  if(game_status == "start")
 
   //funtion paddleInCanvas call 
   paddleInCanvas();
@@ -195,4 +202,5 @@ function paddleInCanvas() {
   }
 }
 
-
+ 
+ 
